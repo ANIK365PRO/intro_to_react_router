@@ -11,6 +11,8 @@ const Header = () => {
         <NavLink to="mobiles">Mobiles</NavLink>
         <NavLink to="laptops">Laptops</NavLink>
         <NavLink to="rNfild">RNfild</NavLink>
+        <NavLink to="users">Users</NavLink>
+        <NavLink to="users2">Users-2</NavLink>
       </nav>
     </div>
   );
