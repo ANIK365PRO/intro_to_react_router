@@ -10,6 +10,9 @@ import Laptops from './components/Laptops/Laptops.jsx';
 import RNfild from './components/RNfild/RNfild.jsx';
 import Users from './components/Users/Users.jsx';
 import Users2 from './components/Users2/Users2.jsx';
+import UsersDetsils from './components/UsersDetails/UsersDetsils.jsx';
+import Posts from './components/Posts/Posts.jsx';
+import PostsDetails from './components/PostsDetails/PostsDetails.jsx';
 
 const users_2_promise = fetch(
   'https://jsonplaceholder.typicode.com/users'
@@ -37,6 +40,25 @@ const router = createBrowserRouter([
             <Users2 users_2_promise={users_2_promise}></Users2>
           </Suspense>
         ),
+      },
+      {
+        path: 'users/:userId',
+
+        loader: ({ params }) =>
+          fetch(`https://jsonplaceholder.typicode.com/users/${params.userId}`),
+
+        Component: UsersDetsils,
+      },
+      {
+        path: 'posts',
+        loader: () => fetch('https://jsonplaceholder.typicode.com/posts'),
+        Component: Posts,
+      },
+      {
+        path: 'posts/:postId',
+        loader: ({ params }) =>
+          fetch(`https://jsonplaceholder.typicode.com/posts/${params.postId}`),
+        Component: PostsDetails,
       },
     ],
   },
