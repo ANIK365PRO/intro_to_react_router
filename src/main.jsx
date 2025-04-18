@@ -60,6 +60,10 @@ const router = createBrowserRouter([
           fetch(`https://jsonplaceholder.typicode.com/posts/${params.postId}`),
         Component: PostsDetails,
       },
+      {
+        path: '*',
+        element: <span>Not found: 404 status</span>,
+      },
     ],
   },
   {

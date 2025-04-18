@@ -1,8 +1,10 @@
 import React from 'react';
-import { useLoaderData } from 'react-router';
+import { Link, useLoaderData, useNavigate } from 'react-router';
 
 const UsersDetsils = () => {
   const user = useLoaderData();
+
+  const navigate = useNavigate();
 
   const { name, website } = user;
   return (
@@ -11,6 +13,8 @@ const UsersDetsils = () => {
 
       <h5>{name}</h5>
       <p>website: {website}</p>
+
+      <button onClick={() => navigate(-1)}>Go back</button>
     </div>
   );
 };
